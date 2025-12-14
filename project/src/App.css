@@ -1,0 +1,242 @@
+#root {
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 2rem;
+  text-align: center;
+}
+
+.logo {
+  height: 6em;
+  padding: 1.5em;
+  will-change: filter;
+  transition: filter 300ms;
+}
+.logo:hover {
+  filter: drop-shadow(0 0 2em #646cffaa);
+}
+.logo.react:hover {
+  filter: drop-shadow(0 0 2em #61dafbaa);
+}
+
+@keyframes logo-spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  a:nth-of-type(2) .logo {
+    animation: logo-spin infinite 20s linear;
+  }
+}
+
+.card {
+  padding: 2em;
+}
+
+.read-the-docs {
+  color: #888;
+}
+/*
+  --- เริ่มต้น CSS สำหรับ Component ของคุณ ---
+*/
+
+/* สไตล์พื้นฐานสำหรับองค์ประกอบหลัก (ถ้ามี) เพื่อการจัดวาง */
+/*
+  --- Global & Base Styles ---
+*/
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: #f4f7f6; /* พื้นหลังโดยรวมของหน้า */
+    display: flex; /* ใช้ Flexbox จัดวางองค์ประกอบหลัก */
+    flex-direction: column;
+    align-items: center; /* จัดให้อยู่กึ่งกลางแนวนอน */
+    padding: 20px;
+    gap: 30px; /* ระยะห่างระหว่างส่วนต่างๆ */
+}
+
+/*
+  --- Component Container Styles ---
+  ห่อหุ้มแต่ละส่วนหลักเพื่อให้มีขอบเขตและเงา
+*/
+.component-container {
+    background-color: #ffffff;
+    padding: 25px;
+    border-radius: 12px;
+    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.1);
+    max-width: 450px;
+    width: 100%;
+}
+
+/*
+  --- Input & Button Grouping (ใช้สำหรับ .input-box และ .todo-list-box) ---
+*/
+.input-box, .todo-list-box {
+    display: flex;
+    gap: 10px; /* ระยะห่างระหว่าง input และ button */
+    align-items: center;
+    margin-bottom: 15px;
+}
+
+/* ปรับ layout สำหรับ To-Do Box ให้สวยงามขึ้น */
+.todo-list-box {
+    flex-wrap: wrap; /* ให้ input ลงบรรทัดใหม่เมื่อหน้าจอแคบ */
+    padding-top: 10px;
+}
+
+.todo-list-box h2 {
+    width: 100%; /* ให้หัวข้ออยู่บนสุดเต็มความกว้าง */
+    margin-bottom: 15px;
+    color: #333;
+    border-bottom: 2px solid #eee;
+    padding-bottom: 5px;
+}
+
+
+/*
+  --- Input Field Styles ---
+*/
+.input-tag {
+    flex-grow: 1; /* ให้ input ขยายเต็มพื้นที่ที่เหลือ */
+    padding: 10px 15px;
+    font-size: 16px;
+    border: 1px solid #ced4da; /* เส้นขอบอ่อน */
+    border-radius: 6px;
+    box-sizing: border-box;
+    transition: all 0.3s;
+    min-width: 0; /* แก้ปัญหา flex */
+}
+
+.input-tag:focus {
+    border-color: #007bff;
+    box-shadow: 0 0 0 3px rgba(0, 123, 255, 0.25);
+    outline: none;
+}
+
+/*
+  --- Button Styles ---
+*/
+.Submit-button {
+    padding: 10px 20px;
+    font-size: 16px;
+    font-weight: 600;
+    color: #ffffff;
+    background-color: #28a745; /* สีเขียวสำหรับปุ่มหลัก */
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    transition: background-color 0.3s, transform 0.1s;
+    flex-shrink: 0; /* ไม่ให้ปุ่มหดตัว */
+}
+
+.Submit-button:hover {
+    background-color: #218838; /* สีเข้มขึ้นเมื่อเมาส์ไปชี้ */
+}
+
+.Submit-button:active {
+    transform: scale(0.98); /* มีแอนิเมชันเล็กน้อยเมื่อกด */
+}
+
+/*
+  --- Display Text Styles ---
+*/
+.display-text {
+    font-size: 1.1em;
+    font-weight: bold;
+    color: #007bff; /* สีน้ำเงินสำหรับข้อความแสดงผล */
+    padding: 5px 0;
+    text-align: center;
+}
+
+/* สไตล์เฉพาะสำหรับส่วน To-Do เพื่อให้ input ชื่อ/คะแนน จัดเรียงสวยงาม */
+.todo-list-box .input-tag {
+    /* ให้ input ชื่อและคะแนนมีขนาดเท่าๆ กัน */
+    flex-basis: calc(50% - 15px); /* เกือบ 50% หักลบช่องว่าง */
+    margin-bottom: 10px;
+}
+
+/*
+  --- 1. Container สำหรับการ์ดทั้งหมด (ให้การ์ดเรียงต่อกัน) ---
+*/
+.card-list-container {
+    /* ใช้ Flexbox เพื่อจัดเรียงการ์ดให้อยู่ในแถวเดียว (ถ้ามีพื้นที่พอ) 
+       หรือใช้ Grid เพื่อจัดเป็นตารางหลายคอลัมน์ก็ได้ */
+    display: flex; 
+    flex-wrap: wrap; /* ถ้าการ์ดเยอะและไม่มีพื้นที่พอ ให้ขึ้นบรรทัดใหม่ */
+    gap: 20px; /* ระยะห่างระหว่างการ์ดแต่ละใบ */
+    padding: 20px;
+    background-color: #f0f4f8; /* สีพื้นหลังอ่อนๆ ของบริเวณรายการ */
+    border-radius: 10px;
+}
+
+
+/*
+  --- 2. สไตล์ของการ์ดแต่ละใบ (.task-card) ---
+*/
+.task-card {
+    background-color: #ffffff; /* สีพื้นหลังการ์ด */
+    border: 1px solid #e0e7ee;
+    border-radius: 8px;
+    padding: 15px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.08); /* เงาให้การ์ดดูเด่นขึ้น */
+    width: 300px; /* กำหนดความกว้างของการ์ดแต่ละใบ */
+    transition: transform 0.2s, box-shadow 0.2s;
+}
+
+.task-card:hover {
+    transform: translateY(-3px); /* ยกการ์ดขึ้นเล็กน้อยเมื่อเมาส์ชี้ */
+    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.12);
+}
+
+/*
+  --- 3. การจัดเรียงองค์ประกอบภายใน (.task-card-box) ---
+*/
+.task-card-box {
+    display: flex;
+    flex-direction: column; /* จัดเรียงองค์ประกอบในแนวตั้ง */
+    align-items: flex-start; /* จัดชิดซ้าย */
+    gap: 5px; /* ลดระยะห่างระหว่างบรรทัด */
+}
+
+/*
+  --- 4. สไตล์ข้อความ (ชื่อ, คะแนน, เกรด) ---
+*/
+.student-Name {
+    font-weight: 700;
+    font-size: 1.1em;
+    color: #007bff; /* สีน้ำเงินเด่นสำหรับชื่อ */
+    grid-column: 0 / span 3; /* ให้ชื่ออยู่แถวบนเต็มความกว้าง */
+    margin-bottom: 5px;
+}
+
+.student-Point, .student-Grade {
+    font-size: 1em;
+    color: #333;
+    /* จัดวางให้อยู่ในคอลัมน์ที่ 2 และ 3 */
+}
+
+/* เน้นคะแนนให้ดูแตกต่าง */
+.student-Point {
+    font-weight: 500;
+    
+}
+
+/* เน้นเกรดให้เด่นกว่า */
+.student-Grade {
+    font-weight: 600;
+    color: #28a745; /* สีเขียวสำหรับเกรด */
+}
+
+/*
+  --- 5. สไตล์ปุ่มลบ (.Delete) ---
+*/
+.Delete {
+    /* จัดวางปุ่มให้อยู่มุมขวาบนของ grid */
+    grid-column: 3; 
+    grid-row: 1 / span 2;
+    background-color: #dc3545; 
+    color: white
+}
