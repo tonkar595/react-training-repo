@@ -39,6 +39,10 @@ const handleUserClick = (userId : number) => {
     navigate(`/user/${userId}`);
 };
 
+// const handleAddUser = () => {
+//     navigate("/user/add");
+// };
+
 
 useEffect(() => {
     fetchUsers();
@@ -72,7 +76,15 @@ const fetchUsers = async () =>{
 
   return (
     <div className="card-container">
+      
+      {/* <div className="add-user-container">
+        <button className="btn-add-user" onClick={handleAddUser}>
+          + เพิ่มผู้ใช้
+        </button>
+      </div> */}
+
       <h1>User List</h1>
+      
       {users.map((user) => (
         <div className="user-card" >
         <div className="card-header">
@@ -110,6 +122,7 @@ const fetchUsers = async () =>{
             </div>
           )} */}
         </div>
+        
 
       </div>
       ))}

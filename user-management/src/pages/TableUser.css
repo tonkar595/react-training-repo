@@ -1,0 +1,238 @@
+/* =========================
+   Table User Page
+========================= */
+.table-user-page {
+  width: 100%;
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: 2rem 1rem;
+}
+
+/* =========================
+   Table Header
+========================= */
+.table-user-page .table-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 2rem;
+  flex-wrap: wrap;
+  gap: 1rem;
+}
+
+.table-user-page .table-header h1 {
+  margin-bottom: 0;
+  text-align: left;
+}
+
+.table-user-page .btn-add-user {
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  color: white;
+  border: none;
+  padding: 0.875rem 2rem;
+  border-radius: 8px;
+  font-size: 1rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  white-space: nowrap;
+}
+
+.table-user-page .btn-add-user:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 12px rgba(102, 126, 234, 0.4);
+}
+
+.table-user-page .btn-add-user:active {
+  transform: translateY(0);
+}
+
+/* =========================
+   Table Container
+========================= */
+.table-user-page .table-container {
+  background: white;
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  overflow-x: auto;
+}
+
+/* =========================
+   User Table
+========================= */
+.table-user-page .user-table {
+  width: 100%;
+  border-collapse: collapse;
+  min-width: 800px;
+}
+
+.table-user-page .user-table thead {
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  color: white;
+}
+
+.table-user-page .user-table thead th {
+  padding: 1.25rem 1rem;
+  text-align: left;
+  font-weight: 600;
+  font-size: 0.95rem;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.table-user-page .user-table tbody tr {
+  border-bottom: 1px solid #e9ecef;
+  transition: background-color 0.2s ease;
+}
+
+.table-user-page .user-table tbody tr:hover {
+  background-color: #f8f9fa;
+}
+
+.table-user-page .user-table tbody tr:last-child {
+  border-bottom: none;
+}
+
+.table-user-page .user-table tbody td {
+  padding: 1rem;
+  color: #333;
+  font-size: 0.95rem;
+}
+
+.table-user-page .user-table tbody td:first-child {
+  font-weight: 600;
+  color: #667eea;
+}
+
+/* =========================
+   Action Buttons
+========================= */
+.table-user-page .action-buttons {
+  display: flex;
+  gap: 0.5rem;
+  justify-content: center;
+}
+
+.table-user-page .btn-action {
+  padding: 0.5rem 0.75rem;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  font-size: 1.1rem;
+  transition: all 0.2s ease;
+  background: #f0f0f0;
+}
+
+.table-user-page .btn-action:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
+}
+
+.table-user-page .btn-view:hover {
+  background: #4a90e2;
+}
+
+.table-user-page .btn-edit:hover {
+  background: #f39c12;
+}
+
+.table-user-page .btn-delete:hover {
+  background: #e74c3c;
+}
+
+/* =========================
+   Table Footer
+========================= */
+.table-user-page .table-footer {
+  margin-top: 1.5rem;
+  text-align: center;
+  color: white;
+  font-size: 0.95rem;
+  font-weight: 500;
+}
+
+/* =========================
+   Responsive Table
+========================= */
+@media (max-width: 768px) {
+  .table-user-page {
+    padding: 1.5rem 0.5rem;
+  }
+
+  .table-user-page .table-header {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .table-user-page .table-header h1 {
+    text-align: center;
+    font-size: 1.75rem;
+  }
+
+  .table-user-page .btn-add-user {
+    width: 100%;
+    padding: 0.75rem 1.5rem;
+  }
+
+  .table-user-page .table-container {
+    border-radius: 8px;
+  }
+
+  .table-user-page .user-table {
+    font-size: 0.875rem;
+  }
+
+  .table-user-page .user-table thead th {
+    padding: 1rem 0.75rem;
+    font-size: 0.85rem;
+  }
+
+  .table-user-page .user-table tbody td {
+    padding: 0.875rem 0.75rem;
+    font-size: 0.875rem;
+  }
+
+  .table-user-page .action-buttons {
+    flex-direction: column;
+    gap: 0.25rem;
+  }
+
+  .table-user-page .btn-action {
+    padding: 0.4rem 0.6rem;
+    font-size: 1rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .table-user-page {
+    padding: 1rem 0.25rem;
+  }
+
+  .table-user-page .table-header h1 {
+    font-size: 1.5rem;
+  }
+
+  .table-user-page .table-container {
+    border-radius: 6px;
+  }
+
+  .table-user-page .user-table {
+    font-size: 0.8rem;
+  }
+
+  .table-user-page .user-table thead th {
+    padding: 0.875rem 0.5rem;
+    font-size: 0.75rem;
+  }
+
+  .table-user-page .user-table tbody td {
+    padding: 0.75rem 0.5rem;
+    font-size: 0.8rem;
+  }
+
+  .table-user-page .table-footer {
+    font-size: 0.875rem;
+  }
+}
